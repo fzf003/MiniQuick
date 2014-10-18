@@ -1,0 +1,17 @@
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\MiniQuick.Autofac.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\MiniQuick.Autofac.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\Autofac.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\MiniQuick.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\System.Reactive.Interfaces.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\System.Reactive.Linq.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\System.Reactive.Core.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\MiniQuick.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\Autofac.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\System.Reactive.Interfaces.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\System.Reactive.Linq.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Debug\System.Reactive.Core.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\obj\Debug\MiniQuick.Autofac.csprojResolveAssemblyReference.cache
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\obj\Debug\MiniQuick.Autofac.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Autofac\obj\Debug\MiniQuick.Autofac.pdb

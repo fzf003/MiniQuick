@@ -1,0 +1,13 @@
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\MiniQuick.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\MiniQuick.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Core.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Interfaces.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Linq.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Core.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Interfaces.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Linq.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\obj\Debug\MiniQuick.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\obj\Debug\MiniQuick.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\obj\Debug\MiniQuick.csprojResolveAssemblyReference.cache

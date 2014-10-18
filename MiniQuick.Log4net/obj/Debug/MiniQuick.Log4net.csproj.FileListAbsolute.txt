@@ -1,0 +1,17 @@
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\MiniQuick.Log4net.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\MiniQuick.Log4net.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\log4net.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\MiniQuick.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\System.Reactive.Interfaces.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\System.Reactive.Linq.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\System.Reactive.Core.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\MiniQuick.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\log4net.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\System.Reactive.Interfaces.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\System.Reactive.Linq.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\bin\Debug\System.Reactive.Core.xml
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\obj\Debug\MiniQuick.Log4net.csprojResolveAssemblyReference.cache
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\obj\Debug\MiniQuick.Log4net.dll
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Log4net\obj\Debug\MiniQuick.Log4net.pdb
