@@ -10,4 +10,3 @@ D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Interfac
 D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Linq.xml
 D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\obj\Debug\MiniQuick.dll
 D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\obj\Debug\MiniQuick.pdb
-D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick\obj\Debug\MiniQuick.csprojResolveAssemblyReference.cache

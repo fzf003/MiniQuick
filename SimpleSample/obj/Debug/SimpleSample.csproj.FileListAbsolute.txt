@@ -22,3 +22,10 @@ D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\Microsoft.Practices.S
 D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\obj\Debug\SimpleSample.csprojResolveAssemblyReference.cache
 D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\obj\Debug\SimpleSample.exe
 D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\obj\Debug\SimpleSample.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\BBS.dll
+D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\MiniQuick.Aop.dll
+D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\Spring.Aop.dll
+D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\Common.Logging.dll
+D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\BBS.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\MiniQuick.Aop.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\Spring.Core.dll

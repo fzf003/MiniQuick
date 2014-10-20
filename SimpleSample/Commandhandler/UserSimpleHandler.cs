@@ -14,9 +14,20 @@ namespace SimpleSample.Commandhandler
         ///static ILogger logger = ObjectFactory.GetService<ILoggerFactory>().Create(typeof(UserSimpleHandler));
 
         public void When(CreateUserCommand command)
-        {
-            ///throw new Exception("dd");
-            Console.WriteLine(string.Format("接收到:{0}-{1}",command.MessageId,command.Name));
+        { 
+            var result= new Result();
+            try
+            {
+                throw new Exception("dd");
+                Console.WriteLine(string.Format("接收到:{0}-{1}", command.MessageId, command.Name));
+                 result.IsSuccess = true;
+                 command.ResultStatus = result;
+            }
+            catch(Exception ex)
+            {
+                result.IsSuccess = false;
+                command.ResultStatus = result;
+            }
 
         }
 

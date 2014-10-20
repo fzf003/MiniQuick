@@ -38,6 +38,13 @@
     <Reference Include="log4net">
       <HintPath>..\Lib\log4net\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Spring.Aop, Version=2.0.0.40000, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\spring.net 2.0\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\Lib\spring.net 2.0\Spring.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Reactive.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -59,12 +66,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aop\Advice.cs" />
+    <Compile Include="MessageProcess\MessageProcess.cs" />
     <Compile Include="Commandhandler\UserSimpleHandler.cs" />
     <Compile Include="Command\CreateUserCommand.cs" />
+    <Compile Include="MessageProcess\Stock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BBS\BBS.csproj">
+      <Project>{8c31b351-93ec-4617-85e7-d277f1813002}</Project>
+      <Name>BBS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiniQuick.Aop\MiniQuick.Aop.csproj">
+      <Project>{ddd3b3a2-d65c-40a3-9ffd-56a823f32f76}</Project>
+      <Name>MiniQuick.Aop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MiniQuick.Autofac\MiniQuick.Autofac.csproj">
       <Project>{9c324134-7d24-44b5-83e2-28ac61df027d}</Project>
       <Name>MiniQuick.Autofac</Name>

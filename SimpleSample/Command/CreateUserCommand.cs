@@ -9,5 +9,15 @@ namespace SimpleSample.Command
     {
         public string Name { get; set; }
         public string MessageId { get; set; }
+        public Result ResultStatus { get; set; }
+        public CreateUserCommand()
+        {
+            this.ResultStatus = new Result();
+        }
+    }
+
+    public class Result
+    {
+        public bool IsSuccess { get; set; }
     }
 }

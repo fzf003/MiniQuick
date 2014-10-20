@@ -18,6 +18,11 @@ using MiniQuick.MessageBus.CommandBus;
 using MiniQuick.MessageBus.EventBus;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
+using SimpleSample.MessageProcess;
+using BBS;
+using MiniQuick.Aop;
+using SimpleSample.Aop;
 
 namespace SimpleSample
 {
@@ -27,13 +32,60 @@ namespace SimpleSample
         {
             Init();
 
-            SendDomainEvent();
+            //SendDomainEvent();
 
-            SendCommand();
+           // SendCommand();
+
+            //MessageProcess();
+
+            //BBS();
 
              Console.WriteLine("to do something!!!!");  
              Console.WriteLine("=======================华丽的分割线==============================");
              Console.ReadKey();
+        }
+
+
+        static void BBS()
+        {
+            ICommandBus<PostCommand> bus = ObjectFactory.GetService<ICommandBus<PostCommand>>();
+                                                        //.AsProxy<ICommandBus<PostCommand>>((factory) =>
+                                                        //{
+                                                        //    factory.AddAdvice(new AroundAdvice());
+                                                        //    factory.AddAdvice(new ThrowsAdvice());
+                                                        //});
+
+            bus.Subscribe(ObjectFactory.GetService<BBSService>());
+
+            PostCommand createuser = new PostCommand();
+
+            createuser.PostName = "我的帖子";
+
+            createuser.CreateTime = DateTime.Now;
+
+            bus.Send(createuser);
+        }
+
+        static void MessageProcess()
+        {
+            new MessageProcess<Stock>(GetStock(Stock.LoadQuotes())).
+                                      Process((xs, s) =>
+                                      {
+                                          xs.Subscribe((stock) =>
+                                          {
+                                              Console.WriteLine(stock.Volume + "|" + stock.Open);
+                                          });
+                                      });
+        }
+
+        static IEnumerable<Timestamped<Stock>> GetStock(IEnumerable<Stock> source)
+        {
+            foreach (Stock item in source)
+            {
+                var date = new DateTimeOffset(DateTime.Now);
+
+                yield return new Timestamped<Stock>(item, date);
+            }
         }
 
         static void SendDomainEvent()
@@ -57,14 +109,19 @@ namespace SimpleSample
           
             bus.Subscribe(new UserSimpleHandler());
 
-            bus.SendAsync(createuser);
+            bus.Send(createuser);
+            Console.WriteLine("result:"+createuser.ResultStatus.IsSuccess);
         }
 
         static void Init()
         {
+            Assembly[] assemblylist = { Assembly.GetExecutingAssembly(),
+                                        Assembly.GetAssembly(typeof(BBSServiceModule))
+                                      };
+
             MiniQuick.Configuration.Create()
                      .UseAutoFac()
-                     .RegisterModules(Assembly.GetExecutingAssembly())
+                     .RegisterModules(assemblylist)
                      .UseLog4Net()
                      .Start();
         }
@@ -76,6 +133,7 @@ namespace SimpleSample
         {
             builder.RegisterType<Log4NetLoggerFactory>().As<ILoggerFactory>().SingleInstance();
             builder.RegisterGeneric(typeof(DefaultCommandBus<>)).As(typeof(ICommandBus<>)).SingleInstance();
+            builder.RegisterGeneric(typeof(ServiceProxyFactory<>)).As(typeof(IServiceProxyFactory<>)).SingleInstance();
         }
     }
 }

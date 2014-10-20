@@ -15,3 +15,4 @@ D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Aop\bin\Debug\System.Reactive.Core
 D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Aop\obj\Debug\MiniQuick.Aop.csprojResolveAssemblyReference.cache
 D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Aop\obj\Debug\MiniQuick.Aop.dll
 D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Aop\obj\Debug\MiniQuick.Aop.pdb
+D:\Demo\Project\MiniQuick\MiniQuick\MiniQuick.Aop\bin\Debug\Spring.Core.dll
