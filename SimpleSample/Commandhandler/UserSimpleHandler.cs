@@ -9,16 +9,21 @@ using SimpleSample.Command;
 
 namespace SimpleSample.Commandhandler
 {
-    public class UserSimpleHandler : MessageActor
-    {
-        ///static ILogger logger = ObjectFactory.GetService<ILoggerFactory>().Create(typeof(UserSimpleHandler));
 
-        public void When(CreateUserCommand command)
+    public interface ICommandHandle<T>
+    {
+        void Handle(T command);
+    }
+    public class UserSimpleHandler : MessageActor 
+    {
+        static ILogger logger = ObjectFactory.GetService<ILoggerFactory>().Create(typeof(UserSimpleHandler));
+
+        public void Handle(CreateUserCommand command)
         { 
             var result= new Result();
             try
             {
-                throw new Exception("dd");
+                 
                 Console.WriteLine(string.Format("接收到:{0}-{1}", command.MessageId, command.Name));
                  result.IsSuccess = true;
                  command.ResultStatus = result;
@@ -34,7 +39,7 @@ namespace SimpleSample.Commandhandler
 
         public override void OnError(Exception error)
         {
-            //  logger.Error(error);
+              //logger.Error(error);
             Console.WriteLine(error);
         }
 

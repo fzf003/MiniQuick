@@ -1,24 +1,32 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Subjects;
 using System.Text;
+using System.Reactive.Linq;
 
 namespace MiniQuick.MessageBus
 {
 
-    public abstract class AbstractMessageBus<T> 
+    public abstract class AbstractMessageBus<T>
     {
-        ISubject<T> subject = new Subject<T>();
+        private readonly ConcurrentDictionary<Type, object> _subjects = new ConcurrentDictionary<Type, object>();
 
         public void Send(T message)
         {
-            subject.OnNext(message);
+            object subject;
+            if (_subjects.TryGetValue(typeof(T), out subject))
+            {
+                var observer = (ISubject<T>)subject;
+                observer.OnNext(message);
+            }
         }
 
         public IDisposable Subscribe(IObserver<T> handler)
         {
-            return subject.Subscribe(handler);
+            var subject = (ISubject<T>)_subjects.GetOrAdd(typeof(T), t => new Subject<T>());
+            return subject.AsObservable().Subscribe(handler);
         }
 
     }

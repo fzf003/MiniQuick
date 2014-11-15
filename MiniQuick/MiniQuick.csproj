@@ -51,7 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actor\MessageActor.cs" />
+    <Compile Include="Message\IMessage.cs" />
+    <Compile Include="Message\MessageActor.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Infrastructure\IOC\ObjectFactory.cs" />
     <Compile Include="Infrastructure\IOC\IObjectContainer.cs" />

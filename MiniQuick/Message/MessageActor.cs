@@ -8,9 +8,9 @@ namespace MiniQuick.Actor
    public abstract class MessageActor : IDisposable, IObserver<object> 
     {
 
-        public virtual void Handle(object message)
+        public virtual void On(object message)
         {
-            ((dynamic)this).When((dynamic)message);
+            ((dynamic)this).Handle((dynamic)message);
         }
 
         public virtual void Dispose()
@@ -34,7 +34,7 @@ namespace MiniQuick.Actor
             {
                 if (value != null)
                 {
-                    this.Handle(value);
+                    this.On(value);
                 }
             }
             catch (Exception ex)

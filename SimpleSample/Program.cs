@@ -23,6 +23,7 @@ using SimpleSample.MessageProcess;
 using BBS;
 using MiniQuick.Aop;
 using SimpleSample.Aop;
+using SimpleSample.Event;
 
 namespace SimpleSample
 {
@@ -32,11 +33,11 @@ namespace SimpleSample
         {
             Init();
 
-            //SendDomainEvent();
+            SendDomainEvent();
 
-           // SendCommand();
+            SendCommand();
 
-            //MessageProcess();
+          
 
             //BBS();
 
@@ -66,35 +67,15 @@ namespace SimpleSample
             bus.Send(createuser);
         }
 
-        static void MessageProcess()
-        {
-            new MessageProcess<Stock>(GetStock(Stock.LoadQuotes())).
-                                      Process((xs, s) =>
-                                      {
-                                          xs.Subscribe((stock) =>
-                                          {
-                                              Console.WriteLine(stock.Volume + "|" + stock.Open);
-                                          });
-                                      });
-        }
-
-        static IEnumerable<Timestamped<Stock>> GetStock(IEnumerable<Stock> source)
-        {
-            foreach (Stock item in source)
-            {
-                var date = new DateTimeOffset(DateTime.Now);
-
-                yield return new Timestamped<Stock>(item, date);
-            }
-        }
+        
 
         static void SendDomainEvent()
         {
-            IEventBus<string> eventbus= new DefaultEventBus<string>();
+            IEventBus<CreateUsered> eventbus = new DefaultEventBus<CreateUsered>();
 
-            eventbus.Subscribe(new Handler<string>((string item) => { Console.WriteLine(item);}));
+            eventbus.Subscribe(new Handler<CreateUsered>((CreateUsered item) => { Console.WriteLine(item.Name); }));
 
-            eventbus.PublishAsync(Guid.NewGuid().ToString());
+            eventbus.PublishAsync(new CreateUsered() {  Name="张三" });
         }
 
         static void SendCommand()

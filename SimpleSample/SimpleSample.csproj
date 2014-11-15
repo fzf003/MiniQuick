@@ -67,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aop\Advice.cs" />
+    <Compile Include="Event\CreateUsered.cs" />
+    <Compile Include="Event\UserSimpleHandler.cs" />
     <Compile Include="MessageProcess\MessageProcess.cs" />
     <Compile Include="Commandhandler\UserSimpleHandler.cs" />
     <Compile Include="Command\CreateUserCommand.cs" />
