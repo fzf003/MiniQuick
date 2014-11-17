@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MiniQuick.Actor;
+using MiniQuick.Message;
 using MiniQuick.Infrastructure.IOC;
 using MiniQuick.Infrastructure.Log;
 using SimpleSample.Command;

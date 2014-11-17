@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniQuick.MessageBus.CommandBus;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,17 +10,18 @@ namespace MiniQuick.MessageBus.EventBus
   
     public class DefaultEventBus<T> : AbstractMessageBus<T>, IEventBus<T>
     {
+        public DefaultEventBus()
+            :base(EventHandlerRegistry.Instance.Subjects)
+        {
 
+        }
         public void Publish(T @event)
         {
             this.Send(@event);
         }
 
 
-        public void Reply(T @event)
-        {
-            this.Send(@event);
-        }
+        
     }
 
 
@@ -32,13 +34,7 @@ namespace MiniQuick.MessageBus.EventBus
             var sendaction = new Action(() => { bus.Publish(message); });
             return Task.Factory.FromAsync(sendaction.BeginInvoke, sendaction.EndInvoke, null);
         }
-
-        public static Task ReplyAsync<T>(this IEventBus<T> bus, T message)
-        {
-            var sendaction = new Action(() => { bus.Reply(message); });
-            return Task.Factory.FromAsync(sendaction.BeginInvoke, sendaction.EndInvoke, null);
-        }
-
+ 
 
         public static IDisposable Subscribe<T>(this IEventBus<T> bus, Action<T> action)
         {

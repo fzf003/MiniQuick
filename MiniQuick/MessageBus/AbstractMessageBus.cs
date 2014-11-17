@@ -5,14 +5,21 @@ using System.Linq;
 using System.Reactive.Subjects;
 using System.Text;
 using System.Reactive.Linq;
+ 
 
-namespace MiniQuick.MessageBus
+namespace MiniQuick.MessageBus.CommandBus
 {
 
     public abstract class AbstractMessageBus<T>
     {
-        private readonly ConcurrentDictionary<Type, object> _subjects = new ConcurrentDictionary<Type, object>();
+        private readonly ConcurrentDictionary<Type, object> _subjects;
 
+        public AbstractMessageBus(ConcurrentDictionary<Type, object> subject)
+        {
+            this._subjects = subject;
+        }
+
+      
         public void Send(T message)
         {
             object subject;

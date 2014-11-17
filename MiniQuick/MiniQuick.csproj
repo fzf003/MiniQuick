@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="Infrastructure\Repository\IRepository.cs" />
+    <Compile Include="MessageBus\CommandBus\CommandHandlerRegistry.cs" />
+    <Compile Include="MessageBus\CommandBus\ICommandHandler.cs" />
+    <Compile Include="MessageBus\EventBus\EventHandlerRegistry.cs" />
+    <Compile Include="MessageBus\EventBus\IEventHandler.cs" />
     <Compile Include="Message\IMessage.cs" />
     <Compile Include="Message\MessageActor.cs" />
     <Compile Include="Configuration.cs" />

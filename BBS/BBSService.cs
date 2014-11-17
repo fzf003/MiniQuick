@@ -1,4 +1,5 @@
-﻿using MiniQuick.Actor;
+﻿using MiniQuick.Message;
+using MiniQuick.MessageBus.CommandBus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,10 @@ namespace BBS
 {
 
 
- public class BBSService : MessageActor
+    public class BBSService : MessageActor, ICommandHandler<PostCommand>
     {
 
-        public void When(PostCommand command)
+        public void Handle(PostCommand command)
         {
             Console.WriteLine("发布一个帖子");
         }
@@ -20,12 +21,7 @@ namespace BBS
 
 
 
-    public class PostCommand
-    {
-        public string PostName { get; set; }
-
-        public DateTime CreateTime { get; set; }
-    }
+   
 
     
 }

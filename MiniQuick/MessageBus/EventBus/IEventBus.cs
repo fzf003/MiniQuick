@@ -9,7 +9,7 @@ namespace MiniQuick.MessageBus.EventBus
     {
         void Publish(T @event);
 
-        void Reply(T @event);
+     
 
         IDisposable Subscribe(IObserver<T> handler);
     }

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BBSService.cs" />
     <Compile Include="BBSServiceModule.cs" />
+    <Compile Include="PostCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

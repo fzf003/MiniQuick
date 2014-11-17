@@ -24,6 +24,7 @@ using BBS;
 using MiniQuick.Aop;
 using SimpleSample.Aop;
 using SimpleSample.Event;
+using MiniQuick.Common;
 
 namespace SimpleSample
 {
@@ -37,14 +38,14 @@ namespace SimpleSample
 
             SendCommand();
 
-          
-
-            //BBS();
+            BBS();
 
              Console.WriteLine("to do something!!!!");  
              Console.WriteLine("=======================华丽的分割线==============================");
              Console.ReadKey();
         }
+
+       
 
 
         static void BBS()
@@ -64,7 +65,7 @@ namespace SimpleSample
 
             createuser.CreateTime = DateTime.Now;
 
-            bus.Send(createuser);
+            bus.SendAsync(createuser);
         }
 
         
@@ -73,9 +74,10 @@ namespace SimpleSample
         {
             IEventBus<CreateUsered> eventbus = new DefaultEventBus<CreateUsered>();
 
-            eventbus.Subscribe(new Handler<CreateUsered>((CreateUsered item) => { Console.WriteLine(item.Name); }));
-
-            eventbus.PublishAsync(new CreateUsered() {  Name="张三" });
+            eventbus.Subscribe((CreateUsered item) => { Console.WriteLine(item.Name); });
+          
+            eventbus.PublishAsync(new CreateUsered() { Name = "张三" });
+              
         }
 
         static void SendCommand()
@@ -90,8 +92,8 @@ namespace SimpleSample
           
             bus.Subscribe(new UserSimpleHandler());
 
-            bus.Send(createuser);
-            Console.WriteLine("result:"+createuser.ResultStatus.IsSuccess);
+            bus.SendAsync(createuser);
+           
         }
 
         static void Init()

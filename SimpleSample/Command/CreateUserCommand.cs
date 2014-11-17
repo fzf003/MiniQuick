@@ -1,4 +1,4 @@
-﻿using MiniQuick.Actor;
+﻿using MiniQuick.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;

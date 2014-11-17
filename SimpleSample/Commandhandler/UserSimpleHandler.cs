@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MiniQuick.Actor;
+using MiniQuick.Message;
 using MiniQuick.Infrastructure.IOC;
 using MiniQuick.Infrastructure.Log;
 using SimpleSample.Command;
+using MiniQuick.MessageBus.CommandBus;
 
 namespace SimpleSample.Commandhandler
 {
 
-    public interface ICommandHandle<T>
-    {
-        void Handle(T command);
-    }
-    public class UserSimpleHandler : MessageActor 
+
+    public class UserSimpleHandler : MessageActor, ICommandHandler<CreateUserCommand>
     {
         static ILogger logger = ObjectFactory.GetService<ILoggerFactory>().Create(typeof(UserSimpleHandler));
 
@@ -37,11 +35,7 @@ namespace SimpleSample.Commandhandler
         }
 
 
-        public override void OnError(Exception error)
-        {
-              //logger.Error(error);
-            Console.WriteLine(error);
-        }
+       
 
     }
 }

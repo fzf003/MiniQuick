@@ -10,4 +10,6 @@ namespace MiniQuick.MessageBus.CommandBus
         void Send(T message);
         IDisposable Subscribe(IObserver<T> handler);
     }
+
+  
 }
