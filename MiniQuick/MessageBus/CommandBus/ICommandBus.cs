@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MiniQuick.Message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace MiniQuick.MessageBus.CommandBus
 {
-    public interface ICommandBus<T>
+    public interface ICommandBus
     {
-        void Send(T message);
-        IDisposable Subscribe(IObserver<T> handler);
+        void Send<T>(T message);
+        IDisposable Subscribe<T>(IObserver<T> handler);
     }
 
   

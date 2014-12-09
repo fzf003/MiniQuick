@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MiniQuick.Message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace MiniQuick.MessageBus
 {
-    public class Handler<T> : IObserver<T>
+    public class Handler<T> : IObserver<T>  
     {
         private readonly Action<T> _action;
 

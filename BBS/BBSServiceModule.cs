@@ -10,7 +10,7 @@ namespace BBS
     {
         protected override void Load(Autofac.ContainerBuilder builder)
         {
-            builder.RegisterType<BBSService>().AsSelf().SingleInstance();
+            builder.RegisterType<BBSService>().As<IBBSService>();
         }
     }
 }

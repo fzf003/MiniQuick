@@ -7,9 +7,10 @@ namespace MiniQuick.Message
 {
    public abstract class MessageActor : IDisposable, IObserver<object> 
     {
-
+       private object Message;
         public virtual void On(object message)
         {
+            this.Message = message;
             ((dynamic)this).Handle((dynamic)message);
         }
 
@@ -39,8 +40,12 @@ namespace MiniQuick.Message
             }
             catch (Exception ex)
             {
-                this.OnError(ex);
+                this.OnError(new MessageException(ex.Message,ex));
+                throw ex;
             }
+           
         }
+
+
     }
 }

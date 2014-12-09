@@ -9,11 +9,38 @@ using System.Text;
 
 namespace SimpleSample.MessageProcess
 {
-    public class MessageProcess<T>
+
+
+    public class MessageProcessorFactory
+    {
+
+        public static IMessageProcessService<T> CreateProcessor<T>(IList<Timestamped<T>> datasource)
+        {
+            return new MessageProcessService<T>(datasource);
+        }
+
+    }
+
+
+    public interface IMessageProcessService<T>
+    {
+        /// <summary>
+        /// 开始并处理
+        /// </summary>
+        /// <param name="query"></param>
+        void Process(Action<IObservable<T>, HistoricalScheduler> query);
+    }
+
+
+    /// <summary>
+    /// 分发调度
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class MessageProcessService<T> : IMessageProcessService<T>
     {
         private readonly IEnumerable<Timestamped<T>> _source;
 
-        public MessageProcess(IEnumerable<Timestamped<T>> source)
+        public MessageProcessService(IEnumerable<Timestamped<T>> source)
         {
             _source = source;
         }
@@ -27,6 +54,7 @@ namespace SimpleSample.MessageProcess
             query(scheduler.Source, scheduler);
 
             scheduler.Start();
+
         }
 
         class Scheduler : HistoricalScheduler

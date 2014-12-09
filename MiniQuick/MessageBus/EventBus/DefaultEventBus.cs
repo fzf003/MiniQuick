@@ -7,18 +7,15 @@ using System.Threading.Tasks;
 
 namespace MiniQuick.MessageBus.EventBus
 {
-  
-    public class DefaultEventBus<T> : AbstractMessageBus<T>, IEventBus<T>
+
+    public class DefaultEventBus : AbstractEventBus, IEventBus
     {
         public DefaultEventBus()
-            :base(EventHandlerRegistry.Instance.Subjects)
+            : base(EventHandlerRegistry.Instance)
         {
 
         }
-        public void Publish(T @event)
-        {
-            this.Send(@event);
-        }
+        
 
 
         
@@ -29,14 +26,14 @@ namespace MiniQuick.MessageBus.EventBus
     public static class EventBusExtensions
     {
 
-        public static Task PublishAsync<T>(this IEventBus<T> bus, T message)
+        public static Task PublishAsync<T>(this IEventBus bus, T message)
         {
-            var sendaction = new Action(() => { bus.Publish(message); });
+            var sendaction = new Action(() => { bus.Publish<T>(message); });
             return Task.Factory.FromAsync(sendaction.BeginInvoke, sendaction.EndInvoke, null);
         }
- 
 
-        public static IDisposable Subscribe<T>(this IEventBus<T> bus, Action<T> action)
+
+        public static IDisposable Subscribe<T>(this IEventBus bus, Action<T> action)
         {
             return bus.Subscribe(new Handler<T>(action));
         }

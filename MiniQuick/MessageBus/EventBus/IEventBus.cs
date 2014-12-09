@@ -5,12 +5,12 @@ using System.Text;
 
 namespace MiniQuick.MessageBus.EventBus
 {
-    public interface IEventBus<T>
+    public interface IEventBus
     {
-        void Publish(T @event);
+        void Publish<T>(T @event);
 
      
 
-        IDisposable Subscribe(IObserver<T> handler);
+        IDisposable Subscribe<T>(IObserver<T> handler);
     }
 }

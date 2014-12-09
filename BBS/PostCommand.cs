@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MiniQuick.Message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace BBS
 {
-    public class PostCommand
+    public class PostCommand:IMessage
     {
         public string PostName { get; set; }
 

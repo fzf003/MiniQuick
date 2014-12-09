@@ -51,12 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\TaskHelpers.cs" />
     <Compile Include="Common\Helper.cs" />
     <Compile Include="Infrastructure\Repository\IRepository.cs" />
     <Compile Include="MessageBus\CommandBus\CommandHandlerRegistry.cs" />
     <Compile Include="MessageBus\CommandBus\ICommandHandler.cs" />
+    <Compile Include="MessageBus\EventBus\AbstractEventBus.cs" />
     <Compile Include="MessageBus\EventBus\EventHandlerRegistry.cs" />
     <Compile Include="MessageBus\EventBus\IEventHandler.cs" />
+    <Compile Include="Message\MessageException.cs" />
     <Compile Include="Message\IMessage.cs" />
     <Compile Include="Message\MessageActor.cs" />
     <Compile Include="Configuration.cs" />
@@ -66,13 +69,16 @@
     <Compile Include="Infrastructure\Log\ILoggerFactory.cs" />
     <Compile Include="MessageBus\CommandBus\ICommandBus.cs" />
     <Compile Include="MessageBus\CommandBus\DefaultCommandBus.cs" />
-    <Compile Include="MessageBus\AbstractMessageBus.cs" />
+    <Compile Include="MessageBus\CommandBus\AbstractCommandBus.cs" />
     <Compile Include="MessageBus\CommandBus\CommandBusExtensionsExtensions.cs" />
     <Compile Include="MessageBus\EventBus\DefaultEventBus.cs" />
     <Compile Include="MessageBus\EventBus\IEventBus.cs" />
     <Compile Include="MessageBus\Handler.cs" />
+    <Compile Include="Process\IMessageProcessService.cs" />
+    <Compile Include="Process\MessageProcessService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

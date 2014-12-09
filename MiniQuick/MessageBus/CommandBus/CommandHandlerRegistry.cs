@@ -32,6 +32,23 @@ namespace MiniQuick.MessageBus.CommandBus
             }
         }
 
+       public void AddCommandHandler(Type type,object commandhandlerobj)
+        {
+           object obj=null;
+           if(!this._subjects.TryGetValue(type,out obj))
+           {
+               this._subjects.TryAdd(type, commandhandlerobj);
+           }
+          
+        }
+
+     public object GetCommandHandler(Type type)
+       {
+          object obj=null;
+          this._subjects.TryGetValue(type, out obj);
+          return obj;
+       }
+
         public ConcurrentDictionary<Type, object> Subjects
         {
             get

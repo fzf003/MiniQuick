@@ -9,10 +9,10 @@ namespace MiniQuick.MessageBus.CommandBus
 {
 
 
-    public class DefaultCommandBus<T> : AbstractMessageBus<T>, ICommandBus<T>
+    public class DefaultCommandBus: AbstractCommandBus, ICommandBus
     {
         public DefaultCommandBus()
-            : base(CommandHandlerRegistry.Instance.Subjects)
+            : base(CommandHandlerRegistry.Instance)
         {
 
         }

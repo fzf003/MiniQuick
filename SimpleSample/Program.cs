@@ -25,14 +25,45 @@ using MiniQuick.Aop;
 using SimpleSample.Aop;
 using SimpleSample.Event;
 using MiniQuick.Common;
+using System.Reactive.Subjects;
+using System.Reactive.Concurrency;
+using SimpleSample.Model;
+using System.Data.SqlClient;
+using PetaPoco;
+using SimpleSample.Business.Interface;
+using SimpleSample.Business;
+using System.Collections.Concurrent;
+using MiniQuick.Common;
 
 namespace SimpleSample
 {
     class Program
     {
+
+        static List<Timestamped<string>> GetMessage()
+        {
+            
+            List<Timestamped<string>> list = new List<Timestamped<string>>();
+            
+            for (int i = 0; i < 100;i++ )
+            {
+                list.Add(new Timestamped<string>(Guid.NewGuid().ToString("N"), DateTimeOffset.Now));
+            }
+
+            return list;
+
+                
+        }
+
+
+       static ConcurrentStack<string> _socketArgsPool = new ConcurrentStack<string>();
+
         static void Main(string[] args)
         {
             Init();
+
+
+
 
             SendDomainEvent();
 
@@ -40,60 +71,96 @@ namespace SimpleSample
 
             BBS();
 
+          //  Rx();
+    
+
+
+          
              Console.WriteLine("to do something!!!!");  
              Console.WriteLine("=======================华丽的分割线==============================");
              Console.ReadKey();
         }
 
+
        
+       
+        static void Rx()
+        {
+            var subject = new Subject<KeyValuePair<int, string>>();
+
+            var groups = subject.GroupBy(x => x.Key);
+
+            groups.SelectMany(x => x).Subscribe(p => Console.WriteLine(p.Value));
+
+            subject.OnNext(new KeyValuePair<int, string>(1, "a"));
+            subject.OnNext(new KeyValuePair<int, string>(2, "b"));
+        
+            subject.OnNext(new KeyValuePair<int, string>(1, "c"));
+            subject.OnCompleted();
+
+
+
+            
+        }
 
 
         static void BBS()
         {
-            ICommandBus<PostCommand> bus = ObjectFactory.GetService<ICommandBus<PostCommand>>();
-                                                        //.AsProxy<ICommandBus<PostCommand>>((factory) =>
-                                                        //{
-                                                        //    factory.AddAdvice(new AroundAdvice());
-                                                        //    factory.AddAdvice(new ThrowsAdvice());
-                                                        //});
+            ICommandBus bus = ObjectFactory.GetService<ICommandBus>()
+                                                        .AsProxy<ICommandBus>((factory) =>
+                                                        {
+                                                            factory.AddAdvice(new AroundAdvice());
+                                                            factory.AddAdvice(new ThrowsAdvice());
+                                                        });
 
-            bus.Subscribe(ObjectFactory.GetService<BBSService>());
+            bus.Subscribe<PostCommand>(ObjectFactory.GetService<IBBSService>());
+          
+            {
+                PostCommand createuser = new PostCommand();
 
-            PostCommand createuser = new PostCommand();
+                createuser.PostName = "我的帖子";
 
-            createuser.PostName = "我的帖子";
+                createuser.CreateTime = DateTime.Now;
 
-            createuser.CreateTime = DateTime.Now;
+                bus.Send(createuser);
 
-            bus.SendAsync(createuser);
+
+            }
+
+            
         }
 
         
 
         static void SendDomainEvent()
         {
-            IEventBus<CreateUsered> eventbus = new DefaultEventBus<CreateUsered>();
+            IEventBus eventbus = new DefaultEventBus();
 
-            eventbus.Subscribe((CreateUsered item) => { Console.WriteLine(item.Name); });
-          
+            eventbus.Subscribe<CreateUsered>(new UserEventHandler());
+           
+
             eventbus.PublishAsync(new CreateUsered() { Name = "张三" });
-              
+            
         }
 
         static void SendCommand()
         {
-            CreateUserCommand createuser = new CreateUserCommand();
+            ICommandBus bus = new DefaultCommandBus();
+        
+            
+                CreateUserCommand createuser = new CreateUserCommand();
 
-            createuser.Name = "fzf003";
+                createuser.Name = "fzf003";
 
-            createuser.MessageId = "1";
+                createuser.MessageId = "oopp".ToString();
 
-            ICommandBus<CreateUserCommand> bus = new DefaultCommandBus<CreateUserCommand>();
-          
-            bus.Subscribe(new UserSimpleHandler());
+                bus.Subscribe<CreateUserCommand>((cc)=>Console.WriteLine(cc.Name));
 
-            bus.SendAsync(createuser);
-           
+                
+                    bus.SendAsync(createuser);
+              
+               
+            
         }
 
         static void Init()
@@ -114,9 +181,11 @@ namespace SimpleSample
     {
         protected override void Load(ContainerBuilder builder)
         {
+            
             builder.RegisterType<Log4NetLoggerFactory>().As<ILoggerFactory>().SingleInstance();
-            builder.RegisterGeneric(typeof(DefaultCommandBus<>)).As(typeof(ICommandBus<>)).SingleInstance();
+            builder.RegisterType(typeof(DefaultCommandBus)).As(typeof(ICommandBus)).SingleInstance();
             builder.RegisterGeneric(typeof(ServiceProxyFactory<>)).As(typeof(IServiceProxyFactory<>)).SingleInstance();
+            builder.Register(p => new PetaPocoRepository()).As<IRepository>();
         }
     }
 }
