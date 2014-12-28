@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using MiniQuick.Common;
 namespace MiniQuick.MessageBus
 {
     public class Handler<T> : IObserver<T>  

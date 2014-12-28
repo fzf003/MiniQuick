@@ -8,6 +8,7 @@ using MiniQuick.Infrastructure.Log;
 using SimpleSample.Command;
 using MiniQuick.MessageBus.CommandBus;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace SimpleSample.Commandhandler
 {
@@ -16,35 +17,44 @@ namespace SimpleSample.Commandhandler
     public class UserSimpleHandler : MessageActor,
                                     ICommandHandler<CreateUserCommand>,
                                     ICommandHandler<string>
+                                  
+                                    
     {
         static ILogger logger = ObjectFactory.GetService<ILoggerFactory>().Create(typeof(UserSimpleHandler));
 
-        public void Handle(CreateUserCommand command)
-        { 
-            var result= new Result();
-                Console.WriteLine(string.Format("接收到:{0}-{1}-{2}", command.MessageId, command.Name,Thread.CurrentThread.ManagedThreadId));
-                 result.IsSuccess = true;
-                 command.ResultStatus = result;
-        
+        TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
+        //public void Handle( CreateUserCommand command)
+        //{
+        //    Console.WriteLine(command.Name);
+        //}
 
-        }
-
-
+      
         public override void OnCompleted()
         {
+            Console.WriteLine("完成..");
             //base.OnCompleted();
-
-            Console.WriteLine("完成");
         }
 
+        public override void OnError(Exception error)
+        {
+            //base.OnError(error);
+            Console.WriteLine(error.Message);
+             
+        }
 
+        public void Handle(CreateUserCommand command)
+        {
+           
+            Console.WriteLine(command.Name+"Thread-"+Thread.CurrentThread.ManagedThreadId);
 
-
-
+            throw new Exception("sd");
+         
+           
+        }
 
         public void Handle(string command)
         {
-            Console.WriteLine(command);
+            Console.WriteLine(command+"Thread-"+Thread.CurrentThread.ManagedThreadId);
         }
     }
 }

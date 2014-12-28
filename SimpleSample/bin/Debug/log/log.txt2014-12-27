@@ -1,0 +1,38 @@
+2014-12-27 17:24:43,166 ERROR BBS.BBSService - System.Exception: 出错了
+   在 BBS.BBSService.Handle(PostCommand command) 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\BBSService.cs:行号 37
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   在 MiniQuick.Message.CommandExecutor.Execute() 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\Message\CommandExecutor.cs:行号 26
+2014-12-27 17:25:43,176 ERROR BBS.BBSService - System.Exception: 出错了
+   在 BBS.BBSService.Handle(PostCommand command) 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\BBSService.cs:行号 37
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   在 MiniQuick.Message.CommandExecutor.Execute() 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\Message\CommandExecutor.cs:行号 26
+2014-12-27 17:26:11,103 ERROR BBS.BBSService - System.Exception: 出错了
+   在 BBS.BBSService.Handle(PostCommand command) 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\BBSService.cs:行号 37
+   在 CallSite.Target(Closure , CallSite , Object , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   在 MiniQuick.Message.CommandExecutor.Execute() 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\Message\CommandExecutor.cs:行号 26
+2014-12-27 17:27:36,534 ERROR BBS.BBSService - System.Exception: 出错了
+   在 BBS.BBSService.Handle(PostCommand command) 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\BBSService.cs:行号 37
+   在 CallSite.Target(Closure , CallSite , Object , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   在 MiniQuick.Message.CommandExecutor.Execute() 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\Message\CommandExecutor.cs:行号 26
+2014-12-27 18:10:05,648 ERROR BBS.BBSService - System.Exception: 出错了
+   在 BBS.BBSService.Handle(PostCommand command) 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\BBSService.cs:行号 37
+   在 CallSite.Target(Closure , CallSite , Object , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   在 MiniQuick.Message.CommandExecutor.Execute() 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\Message\CommandExecutor.cs:行号 26
+2014-12-27 18:20:31,649 ERROR BBS.BBSService - System.Exception: 出错了
+   在 BBS.BBSService.Handle(PostCommand command) 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\BBSService.cs:行号 37
+   在 CallSite.Target(Closure , CallSite , Object , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   在 MiniQuick.Message.CommandExecutor.Execute() 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\Message\CommandExecutor.cs:行号 26
+2014-12-27 18:21:09,120 ERROR BBS.BBSService - System.Exception: 出错了
+   在 BBS.BBSService.Handle(PostCommand command) 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\BBSService.cs:行号 37
+   在 CallSite.Target(Closure , CallSite , Object , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   在 MiniQuick.Message.CommandExecutor.Execute() 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\Message\CommandExecutor.cs:行号 26
+2014-12-27 18:21:34,999 ERROR BBS.BBSService - System.Exception: 出错了
+   在 BBS.BBSService.Handle(PostCommand command) 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\BBSService.cs:行号 37
+   在 CallSite.Target(Closure , CallSite , Object , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   在 MiniQuick.Message.CommandExecutor.Execute() 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\Message\CommandExecutor.cs:行号 26

@@ -1,0 +1,5 @@
+2014-12-28 10:52:32,143 ERROR BBS.BBSService - System.Exception: 出错了
+   在 BBS.BBSService.Handle(PostCommand command) 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\BBSService.cs:行号 37
+   在 CallSite.Target(Closure , CallSite , Object , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid2[T0,T1](CallSite site, T0 arg0, T1 arg1)
+   在 MiniQuick.Message.CommandExecutor.Execute() 位置 d:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\Message\CommandExecutor.cs:行号 26

@@ -1,0 +1,1 @@
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\obj\Debug\MiniQuick.SignalR.csprojResolveAssemblyReference.cache

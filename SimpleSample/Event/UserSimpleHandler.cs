@@ -8,6 +8,7 @@ using MiniQuick.Infrastructure.Log;
 using SimpleSample.Command;
 using SimpleSample.Event;
 using MiniQuick.MessageBus.EventBus;
+using MiniQuick.MessageBus.CommandBus;
 
 namespace SimpleSample.Commandhandler
 {
@@ -18,14 +19,23 @@ namespace SimpleSample.Commandhandler
         public void Handle(CreateUsered command)
         { 
                 Console.WriteLine(string.Format("接收到:{0}-{1}", command.EventId, command.Name));
-                throw new Exception("ppp");
+        }
+    }
+
+    public class LoggerActor : MessageActor,
+        IEventHandler<LoggerEvent>,
+        IEventHandler<string>
+    {
+         
+        public void Handle(LoggerEvent @event)
+        {
+            Console.WriteLine(@event.Exception.Message);
         }
 
 
-        //public override void OnError(Exception error)
-        //{
-        //    Console.WriteLine(error);
-        //}
-
+        public void Handle(string @event)
+        {
+            Console.WriteLine(@event);
+        }
     }
 }

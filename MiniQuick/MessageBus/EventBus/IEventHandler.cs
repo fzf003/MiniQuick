@@ -7,6 +7,6 @@ namespace MiniQuick.MessageBus.EventBus
 {
     public interface IEventHandler<T>
     {
-        void Handle(T command);
+        void Handle(T @event);
     }
 }

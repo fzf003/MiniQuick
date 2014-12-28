@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniQuick.Message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,23 @@ namespace MiniQuick.Common
 {
     public static class TaskHelpers
     {
+        internal static Task<T> CommandResultCallback<T>(this Task<T> task, Action action) where T : CommandResult,new()
+        {
+            var tcs = new TaskCompletionSource<T>();
+            T result = new T();
+            try{
+                action();
+                
+                result.Status = CommandStatus.Success;
+                tcs.SetResult(result);
+            }catch(Exception ex)
+            {
+                
+                tcs.SetException(ex);
+            }
+            return tcs.Task;
+
+        }
         internal static Task Delay(double milliseconds, CancellationToken cancellationToken)
         {
             var tcs = new TaskCompletionSource<bool>();
@@ -63,11 +81,13 @@ namespace MiniQuick.Common
                 onComplete.Invoke(task);
                 return;
             }
+
             task.ContinueWith(
             onComplete,
             execSync ?
             TaskContinuationOptions.ExecuteSynchronously | TaskContinuationOptions.OnlyOnRanToCompletion :
             TaskContinuationOptions.OnlyOnRanToCompletion);
+
             task.ContinueWith(
             onFaulted,
             execSync ?

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reactive.Subjects;
 using System.Text;
 using System.Reactive.Linq;
+using MiniQuick.Message;
  
 
 namespace MiniQuick.MessageBus.CommandBus
@@ -20,7 +21,7 @@ namespace MiniQuick.MessageBus.CommandBus
         }
 
       
-        public void Send<T>(T message)
+        public void Send<T>(T message) 
         {
             var observer = (ISubject<T>)_subjects.GetCommandHandler(typeof(T));
             observer.OnNext(message);
