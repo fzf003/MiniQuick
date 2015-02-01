@@ -6,6 +6,8 @@ using System.Reactive.Subjects;
 using System.Text;
 using System.Reactive.Linq;
 using MiniQuick.Message;
+using System.Threading;
+using System.Threading.Tasks;
  
 
 namespace MiniQuick.MessageBus.CommandBus
@@ -14,7 +16,6 @@ namespace MiniQuick.MessageBus.CommandBus
     public abstract class AbstractCommandBus
     {
         private readonly CommandHandlerRegistry _subjects;
-
         public AbstractCommandBus(CommandHandlerRegistry subject)
         {
             this._subjects = subject;
@@ -31,7 +32,7 @@ namespace MiniQuick.MessageBus.CommandBus
         {
             var subject = new Subject<T>();
             _subjects.AddCommandHandler(typeof(T), subject);
-            return subject.Subscribe(handler);
+            return subject.Subscribe(handler); 
         }
 
     }

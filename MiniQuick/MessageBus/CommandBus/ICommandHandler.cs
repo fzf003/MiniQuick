@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MiniQuick.MessageBus.CommandBus
 {
-    public interface ICommandHandler<T> : IObserver<object> 
+    public interface ICommandHandler<T> : IObserver<ICommand> 
     {
         void Handle(T command);
     }

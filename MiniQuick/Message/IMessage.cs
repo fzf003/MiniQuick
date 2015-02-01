@@ -10,14 +10,11 @@ namespace MiniQuick.Message
     {
     }
 
-    public interface ICommand : IMessage
-    {
-        string CommandId { get; set; }
-
-        Task Completion { get; }
-    }
+   
 
 
+
+    
     
 
     

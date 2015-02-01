@@ -1,4 +1,5 @@
 ﻿using MiniQuick.Message;
+using MiniQuick.MessageBus.CommandBus;
 using System;
 using System.Collections.Generic;
 using System.Linq;

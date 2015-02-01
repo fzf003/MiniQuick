@@ -12,7 +12,7 @@ using MiniQuick.MessageBus.CommandBus;
 
 namespace SimpleSample.Commandhandler
 {
-    public class UserEventHandler : MessageActor, IEventHandler<CreateUsered>
+    public class UserEventHandler : EventActor, IEventHandler<CreateUsered>
     {
         static ILogger logger = ObjectFactory.GetService<ILoggerFactory>().Create(typeof(UserEventHandler));
 
@@ -22,9 +22,9 @@ namespace SimpleSample.Commandhandler
         }
     }
 
-    public class LoggerActor : MessageActor,
-        IEventHandler<LoggerEvent>,
-        IEventHandler<string>
+    public class LoggerActor : EventActor,
+        IEventHandler<LoggerEvent>
+         
     {
          
         public void Handle(LoggerEvent @event)
@@ -33,9 +33,6 @@ namespace SimpleSample.Commandhandler
         }
 
 
-        public void Handle(string @event)
-        {
-            Console.WriteLine(@event);
-        }
+       
     }
 }

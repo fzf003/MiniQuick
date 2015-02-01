@@ -17,19 +17,11 @@ namespace SimpleSample.MessageProcess
 
         private BlockingCollection<T> _queue = new BlockingCollection<T>();
 
-        public WorkerReceiver(Worker worker)
+        public WorkerReceiver(string workername,Action<T> action)
         {
-            _worker = worker;
-        }
-
-        public WorkerReceiver(Action<T> action)
-        {
-            this._worker = new Worker(typeof(T).FullName, () => {
-                T message = default(T);
-                if ((message = _queue.Take()) != null)
-                {
-                    action(message);
-                }
+            this._worker = new Worker(workername, () =>
+            {
+                action(_queue.Take());
             });
         }
 

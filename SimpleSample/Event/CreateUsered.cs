@@ -1,4 +1,5 @@
 ﻿using MiniQuick.Message;
+using MiniQuick.MessageBus.EventBus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +7,9 @@ using System.Text;
 
 namespace SimpleSample.Event
 {
-    public interface IEvent : IMessage
-    {
+    
 
-    }
-
-    public class CreateUsered : IEvent
+    public class CreateUsered : BaseEvent
     {
         public string Name { get; set; }
         public string EventId { get; set; }
@@ -27,7 +25,7 @@ namespace SimpleSample.Event
 
     }
 
-    public class LoggerEvent
+    public class LoggerEvent:BaseEvent
     {
         public LoggerType LoggerType { get; set; }
         public Exception Exception { get; set; }

@@ -1,0 +1,17 @@
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\MiniQuick.Autofac.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\MiniQuick.Autofac.pdb
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\Autofac.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\Microsoft.Practices.ServiceLocation.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\MiniQuick.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\System.Reactive.Linq.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\System.Reactive.Interfaces.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\System.Reactive.Core.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\MiniQuick.pdb
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\Autofac.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\Microsoft.Practices.ServiceLocation.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\System.Reactive.Linq.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\System.Reactive.Interfaces.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\bin\Release\System.Reactive.Core.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\obj\Release\MiniQuick.Autofac.csprojResolveAssemblyReference.cache
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\obj\Release\MiniQuick.Autofac.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.Autofac\obj\Release\MiniQuick.Autofac.pdb

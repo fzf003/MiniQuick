@@ -11,7 +11,9 @@ namespace MiniQuick.MessageBus.CommandBus
 
         public static Task SendAsync<T>(this ICommandBus bus, T message)
         {
+            TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
             var sendaction = new Action(() => { bus.Send<T>(message); });
+
             return Task.Factory.FromAsync(sendaction.BeginInvoke, sendaction.EndInvoke, null);
         }
 

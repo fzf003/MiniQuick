@@ -14,7 +14,7 @@ namespace SimpleSample.Commandhandler
 {
 
 
-    public class UserSimpleHandler : MessageActor,
+    public class UserSimpleHandler : CommandActor,
                                     ICommandHandler<CreateUserCommand>,
                                     ICommandHandler<string>
                                   
@@ -47,7 +47,7 @@ namespace SimpleSample.Commandhandler
            
             Console.WriteLine(command.Name+"Thread-"+Thread.CurrentThread.ManagedThreadId);
 
-            throw new Exception("sd");
+            //throw new Exception("sd");
          
            
         }

@@ -37,32 +37,32 @@ using MiniQuick.Process;
 using MiniQuick.Channel;
 using MiniQuick.Message;
 using System.Reactive.Threading.Tasks;
+using MiniQuick.Listener;
+using MiniQuick.Infrastructure;
 namespace SimpleSample
 {
     class Program
     {
 
-
+        static BlockingCollection<string> _queue = new BlockingCollection<string>(new ConcurrentQueue<string>());
         static void Main(string[] args)
         {
             Init();
+         
+            //LoopProcessor<string> worker = new LoopProcessor<string>((item) =>
+            //{
+            //    Console.WriteLine(item);
+            //},4);
 
-
-
-
-
-
-
-
+            //worker.Start();
+            //for (int i = 0; i < 10000;i++ )
+            //    worker.PostMessage(Guid.NewGuid().ToString());
 
             BBS();
+          //  SendCommand();
+            //SendDomainEvent();
 
-            
 
-    
-             
-
-          
              Console.WriteLine("to do something!!!!");  
              Console.WriteLine("=======================华丽的分割线==============================");
              Console.ReadKey();
@@ -79,12 +79,12 @@ namespace SimpleSample
         static void BBS()
         {
           
-            ICommandBus bus = ObjectFactory.GetService<ICommandBus>();
-                              //.AsProxy<ICommandBus>((factory) =>
-                              //                          {
-                              //                              factory.AddAdvice(new AroundAdvice());
-                              //                              factory.AddAdvice(new ThrowsAdvice());
-                              //                          });
+            ICommandBus bus = ObjectFactory.GetService<ICommandBus>()
+                              .AsProxy<ICommandBus>((factory) =>
+                                                        {
+                                                            factory.AddAdvice(new AroundAdvice());
+                                                            factory.AddAdvice(new ThrowsAdvice());
+                                                        });
             bus.Subscribe<PostCommand>(ObjectFactory.GetService<IBBSService>());
 
 
@@ -95,15 +95,19 @@ namespace SimpleSample
 
                 createuser.CreateTime = DateTime.Now;
                 bus.SendAsync(createuser);
-                
-                    
+
+                createuser.Completion.ContinueWith(task =>
+                {
+                    if (task.Result.Status == CommandStatus.Failed)
+                    {
+                        Console.WriteLine(task.Result.ErrorMessage.InnerException.Message);
+                    }
+                    else
+                    {
+                        Console.WriteLine("正常");
+                    }
+                });
                    
-        
-
-          
-           
-
-            
         }
 
         
@@ -113,8 +117,9 @@ namespace SimpleSample
             IEventBus eventbus = new DefaultEventBus();
 
             eventbus.Subscribe<CreateUsered>(new UserEventHandler());
-           
-            eventbus.PublishAsync(new CreateUsered() { Name = "张三" });
+            for (; ; )
+
+                eventbus.PublishAsync(new CreateUsered() { Name = "张三" });
             
         }
 
@@ -130,25 +135,37 @@ namespace SimpleSample
 
                  
                 bus.Subscribe<CreateUserCommand>(new UserSimpleHandler());
-                bus.Subscribe<string>(new UserSimpleHandler());
                 bus.Subscribe<PostCommand>(ObjectFactory.GetService<IBBSService>());
 
-
                 bus.Send(createuser);
-                bus.Send(Guid.NewGuid().ToString());
 
-                PostCommand post = new PostCommand();
+                for (; ; )
+                {
+                    PostCommand post = new PostCommand();
 
                     post.PostName = "我的帖子" + Guid.NewGuid().ToString("N");
 
                     post.CreateTime = DateTime.Now;
-                    bus.Send(post);
-                    //Thread.Sleep(1000);
-              
+                    bus.SendAsync(post);
 
 
-               
-              
+                    post.Completion.ContinueWith(task =>
+                    {
+                        if (task.Result.Status == CommandStatus.Success)
+                        {
+                            Console.WriteLine("成功");
+                        }
+                        else
+                        {
+                            Console.WriteLine("失败" + task.Result.ErrorMessage.InnerException.Message);
+                        }
+
+                    });
+
+
+
+
+                }
 
                    
 
@@ -182,6 +199,7 @@ namespace SimpleSample
             
             builder.RegisterType<Log4NetLoggerFactory>().As<ILoggerFactory>().SingleInstance();
             builder.RegisterType(typeof(DefaultCommandBus)).As(typeof(ICommandBus)).SingleInstance();
+            builder.RegisterType<DefaultEventBus>().As<IEventBus>().SingleInstance();
             builder.RegisterGeneric(typeof(ServiceProxyFactory<>)).As(typeof(IServiceProxyFactory<>)).SingleInstance();
             builder.Register(p => new PetaPocoRepository()).As<IRepository>();
             

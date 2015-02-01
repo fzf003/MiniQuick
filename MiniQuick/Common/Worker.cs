@@ -10,7 +10,7 @@ namespace MiniQuick.Common
     public interface IWorker
     {
         string WorkerName { get; }
-        Worker Start();
+        void Start();
         void Stop();
     }
 
@@ -32,7 +32,7 @@ namespace MiniQuick.Common
             _action = action;
         }
 
-        public Worker Start()
+        public void Start()
         {
             _cts = new CancellationTokenSource();
 
@@ -44,8 +44,7 @@ namespace MiniQuick.Common
                     this._action();
                 }
             }, _cts.Token, TaskCreationOptions.LongRunning);
-
-            return this;
+            
         }
 
 

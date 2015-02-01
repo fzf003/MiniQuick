@@ -4,25 +4,24 @@ using MiniQuick.MessageBus.EventBus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Subjects;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace MiniQuick.Listener
 {
-    public interface IListener
-    {
-        void Start();
-        void Pause();
-        void Stop();
-        IEventBus EventBus { get; }
-    }
+    
 
-    public class Listener<T> : Disposable, IListener, IObservable<T> where T : class
+    public class Listener<T> : Disposable, IListener, IObservable<T> where T :  class,new()
     {
 
-        IEventBus eventbus;
-        Task worktask;
+      private readonly  IEventBus eventbus;
+      private System.Collections.Concurrent.BlockingCollection<T> _queue = new System.Collections.Concurrent.BlockingCollection<T>();
+       // CancellationTokenSource _cancellationTokenSource;
+       // Task worktask;
+      private readonly IWorker Worker;
+      
         public IEventBus EventBus
         {
             get
@@ -30,67 +29,75 @@ namespace MiniQuick.Listener
                 return this.eventbus;
             }
         }
-        CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
+        
         public Listener()
         {
             this.eventbus = ObjectFactory.GetService<IEventBus>();
-
-            this.OnDispose = () =>
-            {
-                worktask.Dispose();
-            };
+            this.Worker = new Worker(typeof(T).FullName, ListenInternal);
         }
 
         public void Start()
         {
-            worktask = Task.Factory.StartNew(ListenInternal, _cancellationTokenSource.Token, TaskCreationOptions.LongRunning);
+            this.Worker.Start();
         }
 
         public void Pause()
         {
-            _cancellationTokenSource.Cancel();
+            this.Worker.Stop();
         }
 
         public void Stop()
         {
-            _cancellationTokenSource.Cancel();
+            this.Worker.Stop();
         }
 
-        void ListenInternal(object state)
+        void ListenInternal()
         {
-            while (!_cancellationTokenSource.IsCancellationRequested)
+            T message;
+            if((message= _queue.Take())!=null)
             {
-                try
-                {
-                 
-
-                }
-                catch (ThreadAbortException) { }
-                catch (Exception exc)
-                {
-                    Console.WriteLine(exc.Message);
-                }
+                Console.WriteLine(message);
             }
-        }
+            else
+            {
+                Console.WriteLine(Guid.NewGuid().ToString());
+            }
 
-     
+           // Console.WriteLine(message);
+            //while (!_cancellationTokenSource.IsCancellationRequested)
+            //{
+            //    try
+            //    {
+
+
+            //    }
+            //    catch (ThreadAbortException) { }
+            //    catch (Exception exc)
+            //    {
+            //        Console.WriteLine(exc.Message);
+            //    }
+            //}
+        }
 
         public IDisposable Subscribe(IObserver<T> observer)
         {
             return this.eventbus.Subscribe(observer);
         }
+
+       
     }
 
 
     //public static class ListenerExtensions
     //{
-    //    public static Listener<T> OnError<T>(this Listener<T> listener, Action<ChangeUserNamed> action) where T : class
+    //    public static Listener<T> OnError<T>(this Listener<T> listener, Action<T> action) where T : class,new()
     //    {
     //        listener.EventBus.Subscribe(action);
     //        return listener;
     //    }
 
-    //    public static Listener<T> OnStatusChanged<T>(this Listener<T> listener, Action<CreateUsered> action) where T : class
+    //    public static Listener<T> OnStatusChanged<T>(this Listener<T> listener, Action<T> action) where T : class,new()
     //    {
     //        listener.EventBus.Subscribe(action);
     //        return listener;

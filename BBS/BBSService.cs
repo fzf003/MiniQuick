@@ -11,13 +11,11 @@ using System.Threading;
 namespace BBS
 {
     public interface IBBSService:ICommandHandler<PostCommand>
-                                 ,ICommandHandler<string>
-                                
     {
 
     }
 
-    public class BBSService : MessageActor,IBBSService
+    public class BBSService : CommandActor,IBBSService
     {
         static ILogger logger = ObjectFactory.GetService<ILoggerFactory>().Create(typeof(BBSService));
         public BBSService():base(Guid.NewGuid().ToString("N"))
@@ -29,15 +27,12 @@ namespace BBS
  
         public void Handle( PostCommand command)
         {
-            Console.WriteLine("发布一个帖子" + "Thread-" + Thread.CurrentThread.ManagedThreadId + "===Id:" + this.ActorId+"==="+command.PostName);
-            throw new Exception("出错了");
+            Console.WriteLine("发布一个帖子" + "Thread-" + Thread.CurrentThread.ManagedThreadId + "===Id:" + this.ActorId+"==="+command.PostName+"PPPPP-"+this.GetHashCode());
+            //throw new Exception("出错了");
 
         }
 
-        public void Handle( string command)
-        {
-            Console.WriteLine(command);
-        }
+      
     }
 
 

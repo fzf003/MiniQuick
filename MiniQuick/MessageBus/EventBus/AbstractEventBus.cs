@@ -19,16 +19,16 @@ namespace MiniQuick.MessageBus.EventBus
         public void Publish<T>(T message)
         {
             List<object> subject =this._subjects.GetEventHandler(typeof(T));
-                  if(subject==null)
+                  if(subject!=null)
                   {
-                      throw new Exception("没有注册信息");
+                      foreach (var item in subject)
+                      {
+                          var observer = (ISubject<T>)item;
+                          observer.OnNext(message);
+                      }
                   }
 
-            foreach(var item in subject)
-            {
-                var observer = (ISubject<T>)item;
-                observer.OnNext(message);
-            }
+         
           
         }
 

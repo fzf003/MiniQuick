@@ -1,1 +1,16 @@
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\obj\Debug\MiniQuick.SignalR.csprojResolveAssemblyReference.cache
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\MiniQuick.SignalR.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\MiniQuick.SignalR.pdb
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Microsoft.AspNet.SignalR.Owin.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Microsoft.Owin.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Microsoft.Owin.Hosting.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Newtonsoft.Json.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Owin.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Microsoft.AspNet.SignalR.Owin.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Microsoft.Owin.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Microsoft.Owin.Hosting.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\bin\Debug\Newtonsoft.Json.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\obj\Debug\MiniQuick.SignalR.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick.SignalR\obj\Debug\MiniQuick.SignalR.pdb
