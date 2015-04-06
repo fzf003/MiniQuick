@@ -29,8 +29,9 @@ D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\Common.Logging.dll
 D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\BBS.pdb
 D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\MiniQuick.Aop.pdb
 D:\Demo\Project\MiniQuick\MiniQuick\SimpleSample\bin\Debug\Spring.Core.dll
-D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\log4net.config
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\SimpleSample.exe.config
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\obj\Debug\SimpleSample.csprojResolveAssemblyReference.cache
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\log4net.config
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\SimpleSample.exe
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\SimpleSample.pdb
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\Autofac.dll
@@ -60,6 +61,5 @@ D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\System.Reac
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\System.Reactive.Linq.xml
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\System.Reactive.PlatformServices.xml
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\obj\Debug\SimpleSample.csprojResolveAssemblyReference.cache
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\obj\Debug\SimpleSample.exe
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\SimpleSample\obj\Debug\SimpleSample.pdb

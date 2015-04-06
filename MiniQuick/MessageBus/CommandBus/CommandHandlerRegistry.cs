@@ -45,11 +45,17 @@ namespace MiniQuick.MessageBus.CommandBus
         }
 
 
-        public object GetCommandHandler(Type type)
+       public object GetCommandHandler(Type type)
        {
           object obj = null;
           this._subjects.TryGetValue(type, out obj);
           return obj;
+       }
+
+       public bool RemoveCommandHandler(Type type)
+       {
+           object obj = null;
+           return this._subjects.TryRemove(type, out obj);
        }
 
        public ConcurrentDictionary<Type, object> Subjects

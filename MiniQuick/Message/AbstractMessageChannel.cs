@@ -2,34 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Concurrency;
+using System.Reactive.Subjects;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reactive.Threading.Tasks;
 
-namespace MiniQuick.Channel
+
+namespace MiniQuick.Message
 {
-    public interface IChannel<T>
+    public class AbstractMessageChannel<T> : IMessageChannel<T>
     {
-        IObservable<T> Receiver { get;  }
+        private ISubject<T> _points;
 
-        Task SendAsync(T message);
-    }
-
-    public  class AbstractChannel<T>:IChannel<T>
-    {
-         private ISubject<T> _points;
-       
-        public AbstractChannel()
+        public AbstractMessageChannel()
         {
             _points = new ReplaySubject<T>();
             var src = _points.ObserveOn(DefaultScheduler.Instance);
-            this.Receiver= OutMessage(src);
+            this.Receiver = ReceiverSubscribe(src);
         }
- 
-        IObservable<T> OutMessage(IObservable<T> source)
+
+        IObservable<T> ReceiverSubscribe(IObservable<T> source)
         {
             return Observable.Create<T>(observer =>
             {
@@ -42,12 +36,11 @@ namespace MiniQuick.Channel
             });
         }
 
-       
+
 
         public Task SendAsync(T message)
         {
-           return Observable.Start
-                (() => { this._points.OnNext(message); }).ToTask();
+            return Task.Factory.StartNew(() => this._points.OnNext(message));
         }
 
         public IObservable<T> Receiver
@@ -56,6 +49,4 @@ namespace MiniQuick.Channel
             private set;
         }
     }
-
-    
 }

@@ -7,7 +7,7 @@ using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Text;
 
-namespace MiniQuick.Process
+namespace MiniQuick.Infrastructure.Process
 {
     public interface IReplayService<T> : IObserver<T>
     {

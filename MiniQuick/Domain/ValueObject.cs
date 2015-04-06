@@ -12,14 +12,7 @@ namespace MiniQuick.Domain
          where TValueObject : ValueObject<TValueObject>
     {
 
-        #region IEquatable and Override Equals operators
-
-        /// <summary>
-        /// <see cref="M:System.Object.IEquatable{TValueObject}"/>
-        /// </summary>
-        /// <param name="other"><see cref="M:System.Object.IEquatable{TValueObject}"/></param>
-        /// <returns><see cref="M:System.Object.IEquatable{TValueObject}"/></returns>
-        public bool Equals(TValueObject other)
+         public bool Equals(TValueObject other)
         {
             if ((object)other == null)
                 return false;
@@ -120,6 +113,6 @@ namespace MiniQuick.Domain
             return !(left == right);
         }
 
-        #endregion
+       
     }
 }

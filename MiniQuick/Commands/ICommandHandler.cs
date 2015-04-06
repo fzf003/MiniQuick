@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MiniQuick.MessageBus.CommandBus
+namespace MiniQuick.Commands
 {
     public interface ICommandHandler<T> : IObserver<ICommand> 
     {

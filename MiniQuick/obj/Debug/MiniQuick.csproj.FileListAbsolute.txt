@@ -16,10 +16,11 @@ D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\Microsoft.Prac
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Core.dll
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Interfaces.dll
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Linq.dll
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Threading.Tasks.Dataflow.dll
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Core.xml
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Interfaces.xml
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Reactive.Linq.xml
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\bin\Debug\System.Threading.Tasks.Dataflow.xml
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\obj\Debug\MiniQuick.dll
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\obj\Debug\MiniQuick.pdb
-D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\MiniQuick\obj\Debug\MiniQuick.csprojResolveAssemblyReference.cache

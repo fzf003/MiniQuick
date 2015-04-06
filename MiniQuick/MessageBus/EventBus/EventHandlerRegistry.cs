@@ -59,6 +59,19 @@ namespace MiniQuick.MessageBus.EventBus
 
         }
 
+        public void RemoveEventHandler(Type type, object eventhandler)
+        {
+            lock (objlock)
+            {
+                List<object> handlers = null;
+
+                if(this._subjects.TryGetValue(type, out handlers))
+                {
+                    handlers.Remove(eventhandler);
+                }
+            }
+        }
+
         public List<object> GetEventHandler(Type type)
         {
             List<object> handlers = null;

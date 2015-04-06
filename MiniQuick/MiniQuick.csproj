@@ -47,6 +47,10 @@
     <Reference Include="System.Reactive.Linq">
       <HintPath>..\Lib\Reactive\System.Reactive.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Tpl.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,36 +58,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Channel\Channel.cs" />
-    <Compile Include="Channel\ChannelManager.cs" />
     <Compile Include="Common\Disposable.cs" />
     <Compile Include="Common\Worker.cs" />
     <Compile Include="Common\TaskHelpers.cs" />
-    <Compile Include="Common\ExpansionRetryHelper.cs" />
+    <Compile Include="Common\RetryExpansion.cs" />
     <Compile Include="Domain\AggregateRoot.cs" />
     <Compile Include="Domain\IAggregateRoot.cs" />
     <Compile Include="Domain\IValueObject.cs" />
     <Compile Include="Domain\ValueObject.cs" />
-    <Compile Include="Infrastructure\LoopProcessor.cs" />
-    <Compile Include="Infrastructure\ILoopProcessor.cs" />
-    <Compile Include="Infrastructure\Repository\IRepository.cs" />
+    <Compile Include="Infrastructure\Process\MessageProcessor.cs" />
+    <Compile Include="Infrastructure\Process\IMesageProcessor.cs" />
     <Compile Include="Listener\IListener.cs" />
     <Compile Include="Listener\Listener.cs" />
-    <Compile Include="MessageBus\CommandBus\SendCommandRequest.cs" />
-    <Compile Include="MessageBus\CommandBus\ICommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
     <Compile Include="MessageBus\CommandBus\CommandHandlerRegistry.cs" />
-    <Compile Include="MessageBus\CommandBus\ICommandHandler.cs" />
+    <Compile Include="Commands\ICommandHandler.cs" />
     <Compile Include="MessageBus\EventBus\AbstractEventBus.cs" />
-    <Compile Include="MessageBus\EventBus\BaseEvent.cs" />
-    <Compile Include="MessageBus\EventBus\EventActor.cs" />
+    <Compile Include="Events\BaseEvent.cs" />
+    <Compile Include="Events\EventHandler.cs" />
     <Compile Include="MessageBus\EventBus\EventHandlerRegistry.cs" />
-    <Compile Include="MessageBus\EventBus\EventResult.cs" />
-    <Compile Include="MessageBus\EventBus\IEvent.cs" />
-    <Compile Include="MessageBus\EventBus\IEventHandler.cs" />
-    <Compile Include="MessageBus\CommandBus\BaseCommand.cs" />
-    <Compile Include="MessageBus\CommandBus\CommandResult.cs" />
+    <Compile Include="Events\EventResult.cs" />
+    <Compile Include="Events\IEvent.cs" />
+    <Compile Include="Events\IEventHandler.cs" />
+    <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Commands\CommandResult.cs" />
+    <Compile Include="Message\AbstractMessageChannel.cs" />
+    <Compile Include="Message\IMessageChannel.cs" />
     <Compile Include="Message\IMessage.cs" />
-    <Compile Include="MessageBus\CommandBus\CommandActor.cs" />
+    <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Infrastructure\IOC\ObjectFactory.cs" />
     <Compile Include="Infrastructure\IOC\IObjectContainer.cs" />
@@ -96,12 +98,14 @@
     <Compile Include="MessageBus\EventBus\DefaultEventBus.cs" />
     <Compile Include="MessageBus\EventBus\IEventBus.cs" />
     <Compile Include="MessageBus\Handler.cs" />
-    <Compile Include="Process\ReplayService.cs" />
-    <Compile Include="Process\IMessageProcessService.cs" />
-    <Compile Include="Process\MessageProcessService.cs" />
+    <Compile Include="Infrastructure\Process\ReplayService.cs" />
+    <Compile Include="Infrastructure\Process\IMessageProcessService.cs" />
+    <Compile Include="Infrastructure\Process\MessageProcessService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

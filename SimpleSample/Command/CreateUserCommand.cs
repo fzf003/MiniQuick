@@ -1,4 +1,5 @@
-﻿using MiniQuick.Message;
+﻿using MiniQuick.Commands;
+using MiniQuick.Message;
 using MiniQuick.MessageBus.CommandBus;
 using System;
 using System.Collections.Generic;
@@ -13,24 +14,14 @@ namespace SimpleSample.Command
     public class CreateUserCommand:BaseCommand
     {
         public string Name { get; set; }
-      //  public Task<CommandResult> ResultStatus { get; set; }
         public CreateUserCommand()
         {
             
         }
-
-        //public Action CallBack { get; set; }
-
-
      
 
 
-        public Action ResultCallback
-        {
-            get;
-            set;
-        }
-
+        
 
 
 

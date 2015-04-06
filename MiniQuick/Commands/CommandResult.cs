@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MiniQuick.MessageBus.CommandBus
+namespace MiniQuick.Commands
 {
     public class CommandResult
     {
@@ -11,7 +11,11 @@ namespace MiniQuick.MessageBus.CommandBus
         public CommandStatus Status { get;  set; }
       
         public Exception ErrorMessage { get;  set; }
-
+        public CommandResult(CommandStatus status):this(status,null)
+        {
+            Status = status;
+          
+        }
 
         public CommandResult(CommandStatus status, Exception errorMessage)
         {

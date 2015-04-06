@@ -6,7 +6,7 @@ using System.Reactive.Concurrency;
 using System.Reactive.Subjects;
 using System.Text;
 using System.Reactive.Linq;
-namespace MiniQuick.Process
+namespace MiniQuick.Infrastructure.Process
 {
   
     public class MessageProcessService<T> : IMessageProcessService<T>

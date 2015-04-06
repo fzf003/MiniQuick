@@ -9,25 +9,23 @@ using SimpleSample.Command;
 using MiniQuick.MessageBus.CommandBus;
 using System.Threading;
 using System.Threading.Tasks;
+using MiniQuick.MessageBus.EventBus;
+using SimpleSample.Event;
+using MiniQuick.Commands;
 
 namespace SimpleSample.Commandhandler
 {
 
 
-    public class UserSimpleHandler : CommandActor,
-                                    ICommandHandler<CreateUserCommand>,
-                                    ICommandHandler<string>
+    public class UserSimpleHandler : CommandHandler,
+                                    ICommandHandler<CreateUserCommand>
+                                   
                                   
                                     
     {
         static ILogger logger = ObjectFactory.GetService<ILoggerFactory>().Create(typeof(UserSimpleHandler));
 
-        TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
-        //public void Handle( CreateUserCommand command)
-        //{
-        //    Console.WriteLine(command.Name);
-        //}
-
+        
       
         public override void OnCompleted()
         {
@@ -35,26 +33,19 @@ namespace SimpleSample.Commandhandler
             //base.OnCompleted();
         }
 
-        public override void OnError(Exception error)
-        {
-            //base.OnError(error);
-            Console.WriteLine(error.Message);
-             
-        }
+     
 
         public void Handle(CreateUserCommand command)
         {
-           
-            Console.WriteLine(command.Name+"Thread-"+Thread.CurrentThread.ManagedThreadId);
+            var eventbus = ObjectFactory.GetService<IEventBus>();
+ 
+            eventbus.PublishAsync(new CreateUsered() { Name = "张三" });
 
-            //throw new Exception("sd");
+            Console.WriteLine(command.Name+"Thread-"+Thread.CurrentThread.ManagedThreadId+"==="+Guid.NewGuid().ToString());
+
          
            
         }
 
-        public void Handle(string command)
-        {
-            Console.WriteLine(command+"Thread-"+Thread.CurrentThread.ManagedThreadId);
-        }
     }
 }

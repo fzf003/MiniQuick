@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MiniQuick.Infrastructure
+namespace MiniQuick.Infrastructure.Process
 {
-    public interface ILoopProcessor<T>
+    public interface IMesageProcessor<T>
     {
         void Start();
 

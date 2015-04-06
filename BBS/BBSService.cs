@@ -1,4 +1,5 @@
-﻿using MiniQuick.Infrastructure.IOC;
+﻿using MiniQuick.Commands;
+using MiniQuick.Infrastructure.IOC;
 using MiniQuick.Infrastructure.Log;
 using MiniQuick.Message;
 using MiniQuick.MessageBus.CommandBus;
@@ -15,10 +16,10 @@ namespace BBS
 
     }
 
-    public class BBSService : CommandActor,IBBSService
+    public class BBSService : CommandHandler,IBBSService
     {
         static ILogger logger = ObjectFactory.GetService<ILoggerFactory>().Create(typeof(BBSService));
-        public BBSService():base(Guid.NewGuid().ToString("N"))
+        public BBSService()
         {
 
         }
@@ -27,8 +28,10 @@ namespace BBS
  
         public void Handle( PostCommand command)
         {
-            Console.WriteLine("发布一个帖子" + "Thread-" + Thread.CurrentThread.ManagedThreadId + "===Id:" + this.ActorId+"==="+command.PostName+"PPPPP-"+this.GetHashCode());
-            //throw new Exception("出错了");
+
+            Console.WriteLine("发布一个帖子" + "Thread-" + Thread.CurrentThread.ManagedThreadId + "===Id:" +"==="+command.PostName+"PPPPP-"+this.GetHashCode());
+            throw new Exception("出错了");
+            Console.WriteLine(Guid.NewGuid().ToString()+"发一个帖子");
 
         }
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MiniQuick.Common
 {
-    public static class TaskHelpers
+    public static class TaskExpansion
     {
         
         internal static Task Delay(double milliseconds, CancellationToken cancellationToken)

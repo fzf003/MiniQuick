@@ -1,10 +1,11 @@
-﻿using MiniQuick.Infrastructure.IOC;
-using MiniQuick.MessageBus.EventBus;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using MiniQuick.Events;
+using MiniQuick.Infrastructure.IOC;
+using MiniQuick.MessageBus.EventBus;
 
 namespace MiniQuick.Domain
 {

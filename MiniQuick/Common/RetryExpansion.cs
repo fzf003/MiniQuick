@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace MiniQuick.Common
 {
-    public static class ExpansionRetryHelper
+    public static class RetryExpansion
     {
          public static void Retry(this Action action, TimeSpan retryInterval, int retryCount = 3)
         {

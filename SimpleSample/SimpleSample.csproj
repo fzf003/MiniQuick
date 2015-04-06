@@ -77,8 +77,6 @@
     <Compile Include="Aop\Advice.cs" />
     <Compile Include="Business\Interface\IRepository.cs" />
     <Compile Include="Business\PetaPocoRepository.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Commandhandler\SimpleHandler.cs" />
     <Compile Include="Event\CreateUsered.cs" />
     <Compile Include="Event\UserSimpleHandler.cs" />
     <Compile Include="MessageProcess\WorkerReceiver.cs" />

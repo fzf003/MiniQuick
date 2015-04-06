@@ -5,20 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MiniQuick.MessageBus.CommandBus
+namespace MiniQuick.Commands
 {
     public interface ICommand : IMessage
     {
         string CommandId { get; set; }
 
-        Task<CommandResult> Completion { get; }
+
         int RetryCount { get; }
 
         TimeSpan Timeinterval{get;}
   
-        void OnError(Exception ex);
-
-        void OnCompleted();
 
     }
 

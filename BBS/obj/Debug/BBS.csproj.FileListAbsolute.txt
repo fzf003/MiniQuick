@@ -32,6 +32,7 @@ D:\Demo\Project\MiniQuick\MiniQuick\BBS\bin\Debug\System.Reactive.Interfaces.xml
 D:\Demo\Project\MiniQuick\MiniQuick\BBS\bin\Debug\System.Reactive.Linq.xml
 D:\Demo\Project\MiniQuick\MiniQuick\BBS\bin\Debug\System.Reactive.Core.xml
 D:\Demo\Project\MiniQuick\MiniQuick\BBS\obj\Debug\BBS.pdb
+D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\obj\Debug\BBS.csprojResolveAssemblyReference.cache
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\bin\Debug\BBS.dll
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\bin\Debug\BBS.pdb
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\bin\Debug\Autofac.dll
@@ -46,6 +47,5 @@ D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\bin\Debug\System.Reactive.Linq
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\bin\Debug\System.Reactive.Interfaces.xml
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\bin\Debug\System.Reactive.Core.xml
-D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\obj\Debug\BBS.csprojResolveAssemblyReference.cache
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\obj\Debug\BBS.dll
 D:\案例\Actor\MiniQuick\MiniQuick\MiniQuick\BBS\obj\Debug\BBS.pdb

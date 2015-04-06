@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Reactive.Subjects;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MiniQuick.MessageBus.EventBus
 {
@@ -18,25 +20,31 @@ namespace MiniQuick.MessageBus.EventBus
 
         public void Publish<T>(T message)
         {
-            List<object> subject =this._subjects.GetEventHandler(typeof(T));
-                  if(subject!=null)
-                  {
-                      foreach (var item in subject)
-                      {
-                          var observer = (ISubject<T>)item;
-                          observer.OnNext(message);
-                      }
-                  }
+            List<object> subject = this._subjects.GetEventHandler(typeof(T));
+            if (subject != null)
+            {
+                Parallel.ForEach(subject, (item) => {
+                    var observer = (ISubject<T>)item;
+                    observer.OnNext(message);
+                 });
+            }
 
-         
-          
+
+
         }
 
         public IDisposable Subscribe<T>(IObserver<T> handler)
         {
             var subject = new Subject<T>();
             _subjects.AddEventHandler(typeof(T), subject);
-            return subject.Subscribe(handler);
+            subject.Subscribe(handler);
+            return Disposable.Create(() =>
+            {
+                subject.OnCompleted();
+                subject.Dispose();
+                _subjects.RemoveEventHandler(typeof(T),subject);
+
+            });
         }
 
     }

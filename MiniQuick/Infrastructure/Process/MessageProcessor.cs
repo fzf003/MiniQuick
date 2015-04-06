@@ -7,16 +7,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MiniQuick.Infrastructure
+namespace MiniQuick.Infrastructure.Process
 {
-    public class LoopProcessor<T> : ILoopProcessor<T>
+    public class MessageProcessor<T> : IMesageProcessor<T>
     {
         private readonly List<WorkerProcess> _workerlist = new List<WorkerProcess>();
 
         private int index = 0;
 
         private BlockingCollection<T> queue = new BlockingCollection<T>();
-        public LoopProcessor(Action<T> action, int workercount = 1)
+        public MessageProcessor(Action<T> action, int workercount = 1)
         {
             for (int i = 0; i < workercount; i++)
             {

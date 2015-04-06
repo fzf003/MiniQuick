@@ -1,4 +1,5 @@
-﻿using MiniQuick.Message;
+﻿using MiniQuick.Events;
+using MiniQuick.Message;
 using MiniQuick.MessageBus.EventBus;
 using System;
 using System.Collections.Generic;
